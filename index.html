@@ -286,6 +286,142 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: translateY(-50%) scale(0.5); opacity: 0; }
+            to { transform: translateY(-50%) scale(1); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            background: rgba(231, 76, 60, 0.8);
+            transform: scale(1.1);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .modal-nav:hover {
+            background: rgba(231, 76, 60, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        .modal-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 10000;
+        }
+
+        /* Mobile modal adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 85%;
+            }
+            
+            .close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .modal-nav {
+                font-size: 24px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .modal-prev {
+                left: 10px;
+            }
+            
+            .modal-next {
+                right: 10px;
+            }
         }
 
         /* Testimonials */
@@ -672,22 +808,40 @@
             <h2 class="gallery-title fade-in">GALERI PRODUK</h2>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_9793251748687566943.png" alt="Car Coating Result 1">
+                    <img src="https://cdn.orderonline.id/uploads/images_9793251748687566943.png" alt="Car Coating Result 1" onclick="openModal(this)">
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_8016671748687567786.png" alt="Car Coating Result 2">
+                    <img src="https://cdn.orderonline.id/uploads/images_8016671748687567786.png" alt="Car Coating Result 2" onclick="openModal(this)">
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_5707711748687567446.png" alt="Car Coating Result 3">
+                    <img src="https://cdn.orderonline.id/uploads/images_5707711748687567446.png" alt="Car Coating Result 3" onclick="openModal(this)">
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_7425181748688499949.png" alt="Car Coating Result 4">
+                    <img src="https://cdn.orderonline.id/uploads/images_7425181748688499949.png" alt="Car Coating Result 4" onclick="openModal(this)">
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_8951391748687567109.png" alt="Car Coating Application">
+                    <img src="https://cdn.orderonline.id/uploads/images_8951391748687567109.png" alt="Car Coating Application" onclick="openModal(this)">
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://cdn.orderonline.id/uploads/images_5830181748687566291.png" alt="Car Coating Process">
+                    <img src="https://cdn.orderonline.id/uploads/images_5830181748687566291.png" alt="Car Coating Process" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_8470641748687565873.png" alt="Before After 1" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_3130811748687565888.png" alt="Before After 2" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_5429191748687566319.png" alt="Product Usage" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_6389871748688498659.png" alt="Car Protection" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_7503541748688499663.png" alt="Coating Effect" onclick="openModal(this)">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn.orderonline.id/uploads/images_3796951748688500801.png" alt="Professional Result" onclick="openModal(this)">
                 </div>
             </div>
         </div>
@@ -805,7 +959,102 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-prev modal-nav" onclick="changeImage(-1)">&#10094;</div>
+        <div class="modal-next modal-nav" onclick="changeImage(1)">&#10095;</div>
+        <div class="modal-counter">
+            <span id="currentImageIndex">1</span> / <span id="totalImages">12</span>
+        </div>
+    </div>
+
     <script>
+        // Gallery Modal Functions
+        const galleryImages = [
+            "https://cdn.orderonline.id/uploads/images_9793251748687566943.png",
+            "https://cdn.orderonline.id/uploads/images_8016671748687567786.png",
+            "https://cdn.orderonline.id/uploads/images_5707711748687567446.png",
+            "https://cdn.orderonline.id/uploads/images_7425181748688499949.png",
+            "https://cdn.orderonline.id/uploads/images_8951391748687567109.png",
+            "https://cdn.orderonline.id/uploads/images_5830181748687566291.png",
+            "https://cdn.orderonline.id/uploads/images_8470641748687565873.png",
+            "https://cdn.orderonline.id/uploads/images_3130811748687565888.png",
+            "https://cdn.orderonline.id/uploads/images_5429191748687566319.png",
+            "https://cdn.orderonline.id/uploads/images_6389871748688498659.png",
+            "https://cdn.orderonline.id/uploads/images_7503541748688499663.png",
+            "https://cdn.orderonline.id/uploads/images_3796951748688500801.png"
+        ];
+
+        let currentImageIndex = 0;
+
+        function openModal(imgElement) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const currentIndexElement = document.getElementById('currentImageIndex');
+            
+            // Find the index of the clicked image
+            currentImageIndex = galleryImages.indexOf(imgElement.src);
+            
+            modal.style.display = 'block';
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            currentIndexElement.textContent = currentImageIndex + 1;
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around if at the beginning or end
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            const modalImg = document.getElementById('modalImage');
+            const currentIndexElement = document.getElementById('currentImageIndex');
+            
+            modalImg.src = galleryImages[currentImageIndex];
+            currentIndexElement.textContent = currentImageIndex + 1;
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal.style.display === 'block') {
+                switch(event.key) {
+                    case 'Escape':
+                        closeModal();
+                        break;
+                    case 'ArrowLeft':
+                        changeImage(-1);
+                        break;
+                    case 'ArrowRight':
+                        changeImage(1);
+                        break;
+                }
+            }
+        });
+
         // Dynamic Counter Animation
         function animateCounter(element, start, end, duration) {
             let current = start;
